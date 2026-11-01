@@ -15,8 +15,4 @@ java -jar artifacts/app-card-delivery.jar &
 ./gradlew test -Dselenide.headless=true
 ```
 ## CI
-[![Java CI with Gradle](
-https://github.com/Gordon-AG/card-delivery-selenide/
-actions/workflows/gradle.yml/badge.svg
-)](https://github.com/Gordon-AG/card-delivery-selenide/
-actions/workflows/gradle.yml)
+[![Java CI with Gradle](https://github.com/Gordon-AG/card-delivery-selenide/actions/workflows/gradle.yml/badge.svg)](https://github.com/Gordon-AG/card-delivery-selenide/actions/workflows/gradle.yml)
