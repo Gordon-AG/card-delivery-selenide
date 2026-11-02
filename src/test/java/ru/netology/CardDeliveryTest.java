@@ -1,27 +1,28 @@
 package ru.netology;
-import com.codeborne.selenide.Condition;
+
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
+
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selectors.withText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
+
 class CardDeliveryTest {
     private static final String BASE_URL = "http://localhost:9999";
     private static final DateTimeFormatter DATE_FORMATTER =
             DateTimeFormatter.ofPattern("dd.MM.yyyy");
+
     @BeforeEach
     void setUp() {
         open(BASE_URL);
     }
+
     @Test
     void shouldSendCardDeliveryFormSuccessfully() {
         // 1. Дата встречи: не ранее трёх дней с текущей даты.
@@ -52,6 +53,6 @@ class CardDeliveryTest {
         $("[data-test-id='notification'] .notification__title")
                 .shouldHave(exactText("Успешно!"));
         $("[data-test-id='notification'] .notification__content")
-                .shouldHave(Condition.text(meetingDate));
+                .shouldHave(exactText("Встреча успешно забронирована на " + meetingDate));
     }
 }
